@@ -9,7 +9,6 @@ const Editor = ({ entry }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [analysis, setAnalysis] = useState(entry.analysis || {})
 
-  if (!analysis) return null
   const { mood, summary, subject, negative, color } = analysis
   const analysisData = [
     { name: 'Summary', value: summary },
@@ -27,6 +26,8 @@ const Editor = ({ entry }) => {
       setIsLoading(false)
     }
   })
+
+  if (!analysis) return null
 
   return (
     <div className='w-full h-full grid grid-cols-3'>
